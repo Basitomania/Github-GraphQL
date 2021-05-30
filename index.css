@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--primary-color);
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--header-color);
+  /* padding: var(--main-body-padding); */
+  padding: 15px;
+}
+
+.header__item {
+  font-weight: 600;
+  color: var(--header-logo-color);
+  /* white-space: nowrap; */
+  margin-right: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+nav .nav--text {
+  margin-right: 10px;
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+}
+
+.header--search--container {
+  margin-right: 20px;
+}
+
+.header--search--input {
+  border: 0.5 solid #e1e4e8 !important;
+  width: 100% !important;
+  /* padding-right: 30px; */
+}
+
+.header--search--slash {
+  position: absolute;
+  left: 235px;
+  top: 24px;
+}
+
+nav {
+  color: white;
+}
+
+.header__notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.unread--message {
+  position: absolute;
+  right: 101px;
+  z-index: 2;
+  width: 7px;
+  height: 7px;
+  color: var(--color-text-white);
+  background-image: linear-gradient(#54a3ff,#006eed);
+  background-clip: padding-box;
+  border: 2px solid var(--color-header-bg);
+  border-radius: 50%;
+}
+
+.notification__icon {
+  padding: 0 5px;
+}
+
+.notification--avatar {
+  border-radius: 50%;
+}
+
+.fa-caret-down {
+  color: #fff;
+}
+
+.main__header {
+  margin-top: 30px;
+  border-bottom: 1px solid #e1e4e8;
+  height: 35px;
+}
+
+.main__container {
+  /* max-width: var(--main-max-width); */
+  margin: 0 auto;
+  display: flex;
+  padding: var(--main-body-padding);
+}
+
+.main__container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.main--header--space {
+  flex: 1%;
+  /* margin: 0 20px; */
+}
+
+.main--body--profile {
+  flex: 1%;
+  margin-top: -32px !important;
+  padding: 0 20px;
+}
+
+.main--body--repos {
+  flex: 67%
+}
+
+.main--body--image {
+  position: relative !important;
+  z-index: 4;
+  /* padding: 0 10px; */
+}
+
+.main--body--image img {
+  border-radius: 50%;
+}
+
+.main--body--status {
+  word-break: break-word;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.user--status--container {
+  position: absolute;
+  bottom: 0;
+  left: 260px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 30px;
+  margin-left: -50px;
+}
+
+.user--status--circle {
+  background-color: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 50%;
+  box-shadow: black;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main--header--navigation {
+  flex: 67%;
+}
+
+.header--icon {
+  fill: white;
+}
+
+.icon{
+  display: inline-block;
+  vertical-align: text-bottom;
+  fill: #6a737d;
+}
+
+.star--fill {
+  /* fill: red !important; */
+}
+
+.nav--item{
+  padding: 8px 16px;
+  font-size: 14px;
+  line-height: 30px;
+  color: var(--nav-item-color);
+  text-align: center;
+  white-space: nowrap;
+  background-color: initial;
+  border: 0;
+  border-bottom: 2px solid transparent;
+}
+
+.underline--nav {
+  border-bottom: 2px solid #f9826c;
+}
+
+.repo-counter {
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #24292e;
+  text-align: center;
+  background-color: rgba(209,213,215,0.5);
+  border: 1px solid transparent;
+  border-radius: 2em;
+}
+
+.main__body {
+
+}
+.repo--search--section {
+  padding: 15px 0;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.repo--main-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.repo--result {
+  padding: 10px 0;
+  border-bottom: 1px solid #e1e4e8;
+  width: 28%
+}
+
+.repo--item--column {
+  display: flex;
+  padding: 30px 0;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.repo--text--section {
+  flex: 3
+}
+
+.repo--text--section h3, p {
+  margin-bottom: 10px;
+}
+
+.repo--star--section {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  appearance: none;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+h3 a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.repo--language--color {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  /* border: 1px solid var(--color-repo-language-color-border); */
+  border-radius: 50%;
+}
+
+.repo--footer--text {
+  padding-right: 15px;
+}
+
+
+.form--control {
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text-primary);
+  vertical-align: middle;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(225, 228, 232, 0.2);
+  width: 80%;
+}
+
+.github__search  {
+  display: flex;
+}
+
+.search--main--container {
+  margin: 0 auto;
+  margin-top: 20%;
+}
+
+.mobile__profile, .mobile--bio {
+  display: none;
+}
+
+.search--button {
+  padding: 6px;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+}
+
+@media (max-width: 430px) {
+.header--search--container, .header--navigation, .desktop--icon {
+  display: none;
+}
+
+.main--body--profile, .main--header--space {
+  display: none;
+}
+
+.unread--message {
+  position: absolute;
+  right: 20px;
+  z-index: 2;
+  width: 7px;
+  height: 7px;
+  color: var(--color-text-white);
+  background-image: linear-gradient(#54a3ff,#006eed);
+  background-clip: padding-box;
+  border: 2px solid var(--color-header-bg);
+  border-radius: 50%;
+}
+
+.repo--result {
+  width: 70%;
+}
+
+.mobile__profile {
+  margin-top: 10px;
+  display: flex;
+  padding: 0 16px;
+}
+
+.mobile--bio{
+  display: block;
+  padding: 0 16px;
+}
+
+.main__header {
+  margin-top: 5px;
+}
+
+.main__container {
+  padding: 0 16px;
+}
+
+.mobile--image--avatar {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+}
+
+
+:root {
+  --primary-color: #fff; 
+  --header-color: #24292e;
+  --header-logo-color: white;
+  --main-body-padding: 0 32px;
+  /* --main-max-width: 1280px; */
+  --nav-item-color: #24292e
+}
