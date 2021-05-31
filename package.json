@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/Basitomania/Github-GraphQL#readme",
   "dependencies": {
-    "axios": "^0.21.1",
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
