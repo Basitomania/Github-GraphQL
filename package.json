@@ -1,0 +1,27 @@
+{
+  "name": "github-graphql",
+  "version": "1.0.0",
+  "description": "github with graphql",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "yarn netlify dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Basitomania/Github-GraphQL.git"
+  },
+  "author": "basit.abdulkareem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Basitomania/Github-GraphQL/issues"
+  },
+  "homepage": "https://github.com/Basitomania/Github-GraphQL#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^3.32.1"
+  }
+}

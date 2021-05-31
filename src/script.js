@@ -10,8 +10,6 @@ const repoCount = document.querySelector(".repo-counter");
 const mobileUsername = document.querySelector(".mobile--username")
 const mobileAvatar = document.querySelector(".mobile--image--avatar");
 const mobileBio = document.querySelector(".mobile--bio")
-
-
 const repositoriesContainer = document.querySelector(".repo--body--section");
 
 
@@ -61,7 +59,6 @@ query {
     bioHTML
     name
     avatarUrl
-    location
     repositories(last: 20, orderBy: {field: CREATED_AT, direction: DESC}){
       totalCount
       nodes{
@@ -88,23 +85,22 @@ query {
 }`
 
 const renderProfilePage = ({ data }) => {
+  if (data == null) {
+    alert("Query failed");
+    return false;
+  }
   const { user } = data;
   if (user == null) {
     alert("User does not exist on github");
     return false;
   }
-
   const { repositories } = user;
 
   mainInput.style.display = 'none';
   githubProfile.style.display = 'block';
 
   const userDetails = `<h3>${user.name}</h3> <p>${user.login}</p>`;
-  // const mobileUsername = `<h3>${user.name}</h3> <p>${user.login}</p>`;
   const userBio = `${user.bioHTML}`;
-  const repository = `
-  
-  `
 
   imageAvatar.src = user.avatarUrl;
   profileAvatar.src = user.avatarUrl;
@@ -122,9 +118,6 @@ const renderProfilePage = ({ data }) => {
     const starText = `${repo.viewerHasStarred}` ? 'Unstar' : 'Star';
     const starColor = `${repo.viewerHasStarred}` && 'star--fill';
     const updated = getUpdatedTimeSince(new Date(repo.updatedAt));
-
-    // const descriptionText = 
-    // `${repo.description !== null}` ? 'yes' : 'no'
 
     repository.className = 'repo--item--column';
     repository.innerHTML = 
@@ -176,7 +169,13 @@ const renderProfilePage = ({ data }) => {
   }
 )}
 
-const loadProfile = (e) => {
+const getToken = async () => {
+  const response = await fetch(`/.netlify/functions/env`)
+  const resObj = await response.json();
+  return `Bearer ${resObj.token}`;
+}
+
+const loadProfile = async (e) => {
   e.preventDefault();
   const keyword = form.elements["search"].value;
 
@@ -189,18 +188,18 @@ const loadProfile = (e) => {
     method: "post",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer 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`,
+      "authorization": await getToken(),
     },
     body: JSON.stringify({
       query: getProfileQuery(keyword)
     })
   };
 
-  fetch(`https://api.github.com/graphql`, options)
+  await fetch(`https://api.github.com/graphql`, options)
     .then(res => res.json())
     .then(renderProfilePage);
 
-  // form.reset();
+    form.reset()
 }
 
 form.addEventListener("submit", loadProfile)
